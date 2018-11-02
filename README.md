@@ -1,1 +1,4 @@
 nose
+Bootstrap 需要使用到jQuery以及自带bootstrap.min.js
+
+导航栏中左右对齐尽量使用独立元素操作,而不要使用div来控制排版
