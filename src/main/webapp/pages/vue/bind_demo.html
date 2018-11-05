@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+</head>
+<style>
+    .class1{
+        background: #444;
+        color: #eee;
+    }
+</style>
+<body>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+
+<div id="app">
+    <label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
+    <br><br>
+    <div v-bind:class="{'class1': class1}">
+        v-bind:class 指令
+    </div>
+
+</div>
+<div id="components-demo">
+    <button-counter></button-counter>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            class1: false
+        }
+    });
+
+    Vue.component('button-counter',{
+        data:function () {
+            return {
+                count: 0
+            }
+        },
+        template:'<button v-on:click="count++">You clicked me {{count}} times.</button>'
+    }
+    )
+    new Vue({
+        el: '#components-demo'
+    });
+</script>
+</body>
+</html>

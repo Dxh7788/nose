@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        span {
+            border: 1px solid #000;
+        }
+
+        span::before {
+            content: attr(data-text);   /* 伪元素通过attr()获取标签自定义属性的值 */
+        }
+
+    </style>
+</head>
+<body>
+<span data-text="aaa">bbb</span>      <!-- data-text标签自定义的属性 -->
+</body>
+</html>

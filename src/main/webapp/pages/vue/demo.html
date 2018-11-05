@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="../../vue/vue.min.js"></script>
+</head>
+<style>
+    .class1{
+        background: #444;
+        color:#eee;
+    }
+</style>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+</div>
+<div id="my_app">
+    <p v-html="my_app_message"></p>
+</div>
+
+<div id="v_bind_app">
+    <label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
+    <br>
+    <div v-bind:class="{'class1':class1}">
+        v-bind:class指令
+    </div>
+    <p v-html="message"></p>
+</div>
+<!--id绑定-->
+<div id="bind_ids">
+    <div v-bind:id="'list-'+id">
+        BOONUR
+    </div>
+</div>
+<!--指令-->
+<div  id="v-conditional-01">
+    <p v-if="seen">现在你看到我了</p>
+</div>
+<!--参数-->
+<div  id="v-param-01">
+    <a :href="url">跳转1</a>
+</div>
+<!--form1-->
+<div  id="v-form-01">
+    <!--<form v-on:submit.prevent="onSubmit"></form>-->
+</div>
+<!--v-model实现双向数据绑定-->
+<div id="v-model-app">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    })
+    new Vue({
+        el: '#my_app',
+        data: {
+            my_app_message: '<h1>Newer Course!!!</h1>'
+        }
+    })
+    new Vue({
+        el:"#v_bind_app",
+        data:{
+            class1:false,
+            message:"<h1>Dul Course!!!</h1>"
+        }
+    })
+    new Vue({
+        el:"#bind_ids",
+        data:{
+            id:1
+        }
+    })
+    new Vue({
+        el:"#v-conditional-01",
+        data:{
+            seen:true
+        }
+    })
+    new Vue({
+        el:"#v-param-01",
+        data:{
+            url:'http://www.runoob.com'
+        }
+    })
+    new Vue({
+        el:"#v-model-app",
+        data:{
+            message:'runoob'
+        }
+    })
+</script>
+</body>
+</html>

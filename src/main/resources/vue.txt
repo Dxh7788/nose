@@ -1,0 +1,12 @@
+v-html:绑定代码片段
+v-bind绑定数据，比如样式class以及css，以及后端数据。
+
+v-bind的缩写 :href :id :value
+v-on的缩写 @click等
+
+v-if 指令
+    在元素 和 template 中使用 v-if 指令：
+v-show:
+v-else-if:
+v-else:
+v-for:
