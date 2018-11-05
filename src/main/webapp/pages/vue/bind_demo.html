@@ -24,6 +24,10 @@
 <div id="components-demo">
     <button-counter></button-counter>
 </div>
+
+<div id="components-demo-props">
+    <blog-post title="test demo props"></blog-post>
+</div>
 <script>
     new Vue({
         el: '#app',
@@ -40,9 +44,17 @@
         },
         template:'<button v-on:click="count++">You clicked me {{count}} times.</button>'
     }
-    )
+    );
+    Vue.component('blog-post',{
+        props:['title'],
+        template:'<h3>{{title}}</h3>'
+    });
+
     new Vue({
         el: '#components-demo'
+    });
+    new Vue({
+      el:"#components-demo-props"
     });
 </script>
 </body>

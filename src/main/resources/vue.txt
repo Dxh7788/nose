@@ -10,3 +10,8 @@ v-show:
 v-else-if:
 v-else:
 v-for:
+
+#全局注册
+Vue.component('my-component-name', {
+  // ... options ...
+})
