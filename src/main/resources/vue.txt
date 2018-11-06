@@ -1,3 +1,5 @@
+vue渐进式JavaScript框架
+
 v-html:绑定代码片段
 v-bind绑定数据，比如样式class以及css，以及后端数据。
 
@@ -15,3 +17,17 @@ v-for:
 Vue.component('my-component-name', {
   // ... options ...
 })
+
+1.父组件可以使用props把数据传给子组件。
+2.子组件可以使用$emit触发父组件的自定义事件.
+$emit自定义事件,on系统默认组件
+
+
+vue+elementUI
+
+elementUI最好的支持Vue
+
+1、vue发送ajax请求
+vue本身不支持发送ajax请求，需要使用vue-resource(vue1.0版本)、axis(vue 2.0版本)等插件实现
+2、axios是一个基于Promise的HTTP请求客户端，用来发送请求，也是vue2.0官方推荐的，同时不再对vue-resource进行更新和维护
+3、参考：GitHub上搜索axios，查看API文档
