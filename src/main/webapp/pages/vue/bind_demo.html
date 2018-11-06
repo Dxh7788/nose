@@ -11,8 +11,7 @@
     }
 </style>
 <body>
-<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-
+<script src="../../vue/vue.js"></script>
 <div id="app">
     <label for="r1">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
     <br><br>
@@ -28,6 +27,18 @@
 <div id="components-demo-props">
     <blog-post title="test demo props"></blog-post>
 </div>
+
+<div id="parent-event-components-demo-props">
+    <div v-bind:style="{fontSize: postFontSize+'em'}">
+        <parent-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="postFontSize +=0.1"></parent-post>
+    </div>
+</div>
+<div id="demo-alert-box">
+    <alert-box>
+        Something bad happened.
+    </alert-box>
+</div>
+
 <script>
     new Vue({
         el: '#app',
@@ -55,6 +66,28 @@
     });
     new Vue({
       el:"#components-demo-props"
+    });
+    Vue.component('parent-post',{
+        props:['post'],
+        template:'<div class="parent-post"><h3>{{post.title}}</h3><button v-on:click="$emit(\'enlarge-text\')">Enlarge Text</button><div v-html="post.content"></div></div>'
+    });
+    new Vue({
+        el:'#parent-event-components-demo-props',
+        data:{
+            posts:[
+                {id:1,title:'My Journey With Vue',content:'node1'},
+                {id:2,title:'Blogging With Vue',content:'node2'},
+                {id:3,title:'My Vue is so fun',content:'node3'}
+                ],
+            postFontSize:1
+        }
+    });
+
+    Vue.component('alert-box',{
+        template:'<div class="demo-alert-box"><strong>Error!</strong><slot></slot></div>'
+    });
+    new Vue({
+        el:'#demo-alert-box'
     });
 </script>
 </body>
